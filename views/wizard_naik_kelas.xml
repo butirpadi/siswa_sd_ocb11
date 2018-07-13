@@ -1,29 +1,78 @@
 <odoo>
     <data>
 
+        <record model="ir.ui.view" id="siswa_sd_ocb11.wizard_naik_kelas_list">
+            <field name="name">siswa_sd_ocb11_wizard_kenaikan_kelas_list</field>
+            <field name="model">siswa_sd_ocb11.wizard_naik_kelas</field>
+            <field name="arch" type="xml">
+                <tree create="false" delete="false" >
+                    <field name="tahunajaran_id"/>
+                    <field name="jenjang_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="siswa_sd_ocb11.wizard_naik_kelas_list_root">
+            <field name="name">siswa_sd_ocb11_wizard_kenaikan_kelas_list_root</field>
+            <field name="model">siswa_sd_ocb11.wizard_naik_kelas</field>
+            <field name="inherit_id" ref="siswa_sd_ocb11.wizard_naik_kelas_list"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//tree" position="replace">
+                    <tree>
+                        <field name="tahunajaran_id"/>
+                        <field name="jenjang_id"/>
+                        <field name="state"/>
+                    </tree>
+                </xpath>
+            </field>
+        </record>
+
         <record id="siswa_sd_ocb11.wizard_naik_kelas" model="ir.ui.view">
             <field name="name">wizard.ocb11.wizard_naik_kelas</field>
             <field name="model">siswa_sd_ocb11.wizard_naik_kelas</field>
             <field name="arch" type="xml">
                 <form string="Kenaikan Kelas" class="o_sale_order" create="false">
+                    <header>
+                        <button attrs="{'invisible':[('is_collected', '=', True)]}" type="object" name="compute_get_siswa" 
+                            string="Compute Data Siswa" class="oe_edit_only" />
+                        <button type="object" name="action_confirm" string="Confirm" class="btn btn-primary"
+                            attrs="{'invisible':[('state', '=', 'done')]}" />
+                        <button attrs="{'invisible':[('is_collected', '=', False)]}" type="object" confirm="Are you sure?" 
+                            name="reset_compute_siswa" string="Reset Siswa" class="oe_edit_only" groups="siswa_ocb11.group_admin" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="tahunajaran_id" context="{'active_test': False}" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"/>
-                                <field name="jenjang_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />  
+                                <field name="tahunajaran_id" context="{'active_test': False}" readonly="1" 
+                                    options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"/>
+                                <field name="jenjang_id" readonly="1"
+                                    options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />  
+                                    <field name="is_collected" invisible="1" />
                             </group>
                             <group>
-                                <field name="next_tahunajaran_id" context="{'active_test': False}" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"/>
-                                <field name="next_jenjang_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
+                                <field name="next_tahunajaran_id" context="{'active_test': False}" 
+                                    options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}"/>
+                                <field name="next_jenjang_id" readonly="1" 
+                                    options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
                             </group>
                         </group>
+                        <notebook >
+                            <page name="data_siswa" string="Data Siswa" >
+                                <field name="siswa_ids" attrs="{'readonly':[('state', '=', 'done')]}" >
+                                    <tree editable="bottom" >
+                                        <field name="induk" readonly="1" />
+                                        <field name="siswa_id" readonly="1" />
+                                        <field name="jenis_kelamin" readonly="1" />
+                                        <field name="rombel_id" readonly="1" />
+                                        <field name="next_rombel_id" options="{'no_create':True, 'no_edit':True, 'no_create_edit': True, 'no_open':True}" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
-                    <!-- <footer class="oe_edit_only" >
-                        <button name="action_pindah_kelas" type="object"
-                            string="Save" class="oe_highlight"/>
-                            
-                        <button special="cancel" string="Cancel"/>
-                    </footer> -->
                 </form>
             </field>
         </record>
@@ -40,6 +89,7 @@
             <field name="name">Kenaikan Kelas</field>
             <field name="res_model">siswa_sd_ocb11.wizard_naik_kelas</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'group_by': ['tahunajaran_id']}</field>
         </record>
     </data>
 </odoo>

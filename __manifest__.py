@@ -23,6 +23,7 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'data/ir_model_data.xml',
         'views/wizard_naik_kelas.xml',
         'views/menu.xml',

@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_siswa_sd_ocb11_siswa_sd_ocb11,siswa_sd_ocb11.siswa_sd_ocb11,model_siswa_sd_ocb11_siswa_sd_ocb11,,1,0,0,0
+access_wizard_naik_kelas_admin,Administrator,model_siswa_sd_ocb11_wizard_naik_kelas,siswa_ocb11.group_admin,1,1,1,1
+access_wizard_naik_kelas_user,User,model_siswa_sd_ocb11_wizard_naik_kelas,siswa_ocb11.group_user,1,1,1,1
+access_wizard_naik_kelas_rel_admin,Administrator,model_siswa_sd_ocb11_wizard_naik_kelas_siswa_rel,siswa_ocb11.group_admin,1,1,1,1
+access_wizard_naik_kelas_rel_user,User,model_siswa_sd_ocb11_wizard_naik_kelas_siswa_rel,siswa_ocb11.group_user,1,1,1,1
