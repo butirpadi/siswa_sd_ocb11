@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Siswa SD/SMP/SMA",
+    'name': "Siswa SD",
 
     'summary': """
-        Integrate siswa module for SD/SMP/SMA """,
+        Integrate siswa module for SD Level """,
 
     'description': """
-        Integrate siswa module for SD/SMP/SMA
+        Integrate siswa module for SD Level
     """,
 
     'author': "Tepat Guna Karya",
