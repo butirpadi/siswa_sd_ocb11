@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Siswa SD/SMP/SMA",
+    'name': "Siswa SD",
 
     'summary': """
-        Integrate siswa module for SD/SMP/SMA """,
+        Integrate siswa module for SD Level """,
 
     'description': """
-        Integrate siswa module for SD/SMP/SMA
+        Integrate siswa module for SD Level
     """,
 
     'author': "Tepat Guna Karya",
@@ -24,6 +24,8 @@
     # always loaded
     'data': [
         'data/ir_model_data.xml',
+        'views/wizard_naik_kelas.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
