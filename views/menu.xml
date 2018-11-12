@@ -1,6 +1,6 @@
-<odoo>
+<flectra>
     <data>
         <menuitem name="Kenaikan Kelas" id="siswa_sd_ocb11.menu_kenaikan_kelas" parent="siswa_ocb11.submenu_operation"
              action="siswa_sd_ocb11.wizad_kenaikan_kelas_action"  sequence="4"/>
     </data>
-</odoo>
+</flectra>

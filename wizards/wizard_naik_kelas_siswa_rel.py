@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from flectra import models, fields, api
 from pprint import pprint
 
 class wizard_naik_kelas_siswa_rel(models.Model):
@@ -20,4 +20,4 @@ class wizard_naik_kelas_siswa_rel(models.Model):
         domain = {'next_rombel_id':[('jenjang_id','=',self.next_jenjang_id.id)]}
         return {'domain':domain, 'value':{'next_rombel_id':[]}}
 
-    
+     

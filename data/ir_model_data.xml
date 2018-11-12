@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<flectra>
     <data noupdate="1">
         <record id="default_data_jenjang_1" model="siswa_ocb11.jenjang">
             <field name="name">I</field>
@@ -32,4 +32,4 @@
         </record>
         
     </data>
-</odoo>
+</flectra>

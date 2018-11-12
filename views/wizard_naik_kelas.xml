@@ -1,4 +1,4 @@
-<odoo>
+<flectra>
     <data>
 
         <record model="ir.ui.view" id="siswa_sd_ocb11.wizard_naik_kelas_list">
@@ -92,4 +92,4 @@
             <field name="context">{'group_by': ['tahunajaran_id']}</field>
         </record>
     </data>
-</odoo>
+</flectra>
